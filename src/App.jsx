@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage } from "./Pages/landingpage/LandingPage.jsx";
-import { DetailPage } from "./Pages/DetailPage.jsx";
+import { DetailPage } from "./Pages/detailpage/DetailPage.jsx";
 import "./App.css";
 
 export const App = () => {

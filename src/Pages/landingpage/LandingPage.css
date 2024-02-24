@@ -1,13 +1,29 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main-wrapper h1 {
   font-size: 40px;
-  color: bisque;
+  font-family: "Tilt Neon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color: #c3f9eb;
+  text-shadow: 0 0 5px #c3f9eb, 0 0 10px #c3f9eb, 0 0 20px #c3f9eb,
+    0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+
+  /* color: #ffffffb7;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+    0 0 42px rgb(255, 0, 30), 0 0 82px rgb(255, 0, 30), 0 0 92px rgb(255, 0, 30),
+    0 0 102px rgb(255, 0, 30), 0 0 151px rgb(255, 0, 30); */
 }
 
 .search-wrapper {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  background-color: #807878;
   margin: none;
 }
 
