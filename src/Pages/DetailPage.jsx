@@ -13,7 +13,7 @@ export const DetailPage = () => {
   };
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?i=${id}&apikey=${api_key}`)
+    fetch(`https://www.omdbapi.com/?i=${id}&apikey=${api_key}`)
       .then((response) => response.json())
       .then((data) => {
         setMovieDetails(data);
