@@ -42,7 +42,7 @@ export const LandingPage = () => {
 
   const handleSearch = (searchTitle, year) => {
     setSearchattempted(true);
-    let url = `http://www.omdbapi.com/?s=${encodeURIComponent(
+    let url = `https://www.omdbapi.com/?s=${encodeURIComponent(
       searchTitle
     )}&apikey=${api_key}`;
 
