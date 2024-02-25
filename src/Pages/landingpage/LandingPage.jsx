@@ -61,9 +61,10 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className="main-wrapper">
-      <h1>Movie Night</h1>
+    <>
       <div className="search-wrapper">
+        <h1>Movie</h1>
+        <h3>Night</h3>
         <SearchForm onSearch={handleSearch} />
       </div>
 
@@ -96,7 +97,7 @@ export const LandingPage = () => {
           <div>Search for movies...</div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

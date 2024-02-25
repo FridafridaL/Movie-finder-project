@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400..900&family=Tilt+Neon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400..900&family=Sacramento&family=Tilt+Neon&display=swap");
 
 #root {
   max-width: 1280px;
@@ -15,5 +15,8 @@
 }
 
 body {
-  background-image: url(/src/assets/brick.jpg);
+  background-image: url(/src/assets/backdrop.webp);
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  /* background-position: center; */
 }

@@ -11,7 +11,7 @@ export const SearchForm = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-wrapper">
+    <div className="search-form">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
