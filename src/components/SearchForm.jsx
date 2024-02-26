@@ -13,22 +13,25 @@ export const SearchForm = ({ onSearch }) => {
   return (
     <div className="search-form">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={searchTitle}
-          onChange={(e) => setSearchTitle(e.target.value)}
-          placeholder="Search for a movie title here.."
-          required
-        />
-        <input
-          type="text"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-          placeholder="Year (optional)"
-          pattern="\d{4}"
-          title="Year should be a 4-digit number"
-        />
-
+        <div className="inputs-row">
+          <input
+            className="input-title"
+            type="text"
+            value={searchTitle}
+            onChange={(e) => setSearchTitle(e.target.value)}
+            placeholder="Search for a movie title here.."
+            required
+          />
+          <input
+            className="input-year"
+            type="text"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+            placeholder="Year (optional)"
+            pattern="\d{4}"
+            title="Year should be a 4-digit number"
+          />
+        </div>
         <button className="search-button" type="submit">
           Search
         </button>

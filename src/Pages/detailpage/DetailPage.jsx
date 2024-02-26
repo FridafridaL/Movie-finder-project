@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./DetailPage.css";
+import ArrowIcon from "../../assets/arrow.png";
 
 export const DetailPage = () => {
   const { id } = useParams();
@@ -27,26 +28,46 @@ export const DetailPage = () => {
 
   return (
     <div className="detail-wrapper">
-      <button onClick={goBack}>Back to Home</button>
-      {/* <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          color: "blue",
-          marginBottom: "20px",
-          display: "block",
-        }}
-      >
-        Back to Home
-      </Link> */}
+      <button onClick={goBack} className="back-button">
+        <img src={ArrowIcon} alt="Back" />
+      </button>
+
       <h1>{movieDetails.Title}</h1>
-      <p>{movieDetails.Plot}</p>
+      <p className="plot">{movieDetails.Plot}</p>
       {movieDetails.Poster && (
         <img
+          className="poster-img"
           src={movieDetails.Poster}
           alt={`Poster of ${movieDetails.Title}`}
         />
       )}
+      {/* Additional movie details */}
+      <div className="detail-form">
+        <p>
+          <strong>Released:</strong> {movieDetails.Released}
+        </p>
+        <p>
+          <strong>Runtime:</strong> {movieDetails.Runtime}
+        </p>
+        <p>
+          <strong>Genre:</strong> {movieDetails.Genre}
+        </p>
+        <p>
+          <strong>Director:</strong> {movieDetails.Director}
+        </p>
+        <p>
+          <strong>Writers:</strong> {movieDetails.Writer}
+        </p>
+        <p>
+          <strong>Actors:</strong> {movieDetails.Actors}
+        </p>
+        <p>
+          <strong>Language:</strong> {movieDetails.Language}
+        </p>
+        <p>
+          <strong>IMDb Rating:</strong> {movieDetails.imdbRating}
+        </p>
+      </div>
     </div>
   );
 };

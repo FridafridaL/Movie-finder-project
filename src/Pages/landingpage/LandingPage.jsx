@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 export const LandingPage = () => {
+  // State storing moviedata and searchstatus
   const [movies, setMovies] = useState([]);
   const [searchAttempted, setSearchattempted] = useState(false); //If search fails: Movie Not found-message
+  //Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 
   // This useEffect function loads movies from sessionStorage and updates state when the component mounts.
@@ -18,38 +20,19 @@ export const LandingPage = () => {
     }
   }, []);
 
-  // Using useLocation in this useEffect function to navigate back from DetailPage and not loose the data from last search but still be able to refresh and clear the browser
-  //   useEffect(() => {
-  //     if (location.state?.navigatedBack) {
-  //       const savedMovies = sessionStorage.getItem("movies");
-  //       if (savedMovies) {
-  //         setSearchattempted(true);
-  //       }
-  //     } else {
-  //       sessionStorage.removeItem("movies"); // Clear the movies if not navigated back
-  //       //   setMovies([]); // Optional: Clear movies state if you want to start fresh
-  //       setSearchattempted(false);
-  //     }
-  //   }, [location]);
-
-  //   useEffect(() => {
-  //     const savedMovies = sessionStorage.getItem("movies");
-  //     if (savedMovies) {
-  //       setMovies(JSON.parse(savedMovies));
-  //       setSearchattempted(true);
-  //     }
-  //   }, []);
-
+  // Handles movie search and updates with the result
   const handleSearch = (searchTitle, year) => {
     setSearchattempted(true);
     let url = `https://www.omdbapi.com/?s=${encodeURIComponent(
       searchTitle
     )}&apikey=${api_key}`;
 
+    // Appending year if it's provided in the search
     if (year) {
       url += `&y=${year}`;
     }
 
+    // Fetch data from OMDB API and update sessionStorage.
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -65,6 +48,8 @@ export const LandingPage = () => {
       <div className="search-wrapper">
         <h1>Movie</h1>
         <h3>Night</h3>
+
+        {/* Imported the SearchForm component and using handleSearch function above */}
         <SearchForm onSearch={handleSearch} />
       </div>
 
@@ -73,9 +58,8 @@ export const LandingPage = () => {
           movies.length > 0 ? (
             <ul>
               {movies.map((movie) => (
-                <li key={movie.imdbID}>
+                <li key={movie.imdbID} className="movie-item">
                   <Link to={`/movie/${movie.imdbID}`} className="movie-link">
-                    {movie.Title} - {movie.Year}
                     <div className="poster-box">
                       {movie.Poster !== "N/A" ? (
                         <img
@@ -85,6 +69,9 @@ export const LandingPage = () => {
                       ) : (
                         <img src={noImage} alt="Default image" />
                       )}
+                    </div>
+                    <div className="movie-info">
+                      {movie.Title} - {movie.Year}
                     </div>
                   </Link>
                 </li>
@@ -100,5 +87,3 @@ export const LandingPage = () => {
     </>
   );
 };
-
-// fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${api_key}`)
