@@ -10,6 +10,38 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+/* .genres {
+  gap: 10px;
+} */
+
+.genre {
+  border: solid 1px #c3f9eb;
+  border-radius: 5px;
+  padding: 1px;
+  display: inline-block;
+  margin: 0 0 0 7px;
+}
+
+.under-title-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #c3f9eb;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.under-title-box img {
+  margin-right: 5px;
+}
+
 .plot {
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
@@ -20,6 +52,30 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.detail-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.detail-form p {
+  font-family: "Montserrat", sans-serif;
+  color: #c3f9eb;
+  text-align: left;
+  max-width: none;
+  margin: 4px;
+}
+.detail-content p {
+  font-size: 15px;
+}
+
+.poster-img {
+  border-radius: 30px 0 30px 30px;
+  box-shadow: 0 0 10px #ba0000, 0 0 20px #ba0000;
+}
+
 .poster-img {
   border-radius: 30px 0 30px 30px;
   box-shadow: 0 0 10px #ba0000, 0 0 20px #ba0000;
@@ -27,20 +83,6 @@
 
 button.back-button {
   display: flex;
-  border-radius: none;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
-}
-
-.poster-img {
-  border-radius: 30px 0 30px 30px;
-  box-shadow: 0 0 10px #ba0000, 0 0 20px #ba0000;
-}
-
-button.back-button {
   border-radius: none;
   background-color: transparent;
   border: none;
@@ -52,23 +94,6 @@ button.back-button {
 }
 .back-button img {
   display: block;
-}
-
-.detail-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 20px auto;
-  padding-left: 20px;
-}
-
-.detail-form p {
-  font-family: "Montserrat", sans-serif;
-  color: #c3f9eb;
-  text-align: left;
-  max-width: none;
-  margin: 4px;
 }
 
 @media (min-width: 744px) {

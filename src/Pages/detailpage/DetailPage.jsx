@@ -2,6 +2,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./DetailPage.css";
 import ArrowIcon from "../../assets/arrow.png";
+import imdb from "../../assets/imdb.png";
 
 export const DetailPage = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ export const DetailPage = () => {
   const navigate = useNavigate();
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 
-  // To navigate back to Landingpage using useNavigate, navigate(-1) or navigate("/")
+  // Navigates back to landingpage
   const goBack = () => {
     navigate("/");
   };
@@ -33,7 +34,40 @@ export const DetailPage = () => {
       </button>
 
       <h1>{movieDetails.Title}</h1>
-      <p className="plot">{movieDetails.Plot}</p>
+
+      <div className="under-title-box">
+        <img src={imdb} alt="ImDb icon" />
+        <p>{movieDetails.imdbRating}</p>|<p>{movieDetails.Runtime}</p>|
+        <p>{movieDetails.Language}</p>
+        <div className="genres">
+          {/* Splits the genres for styling purpuses */}
+
+          {movieDetails.Genre.split(", ").map((genre, index) => (
+            <span key={index} className="genre">
+              {genre}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Additional movie details */}
+      <div className="detail-form">
+        <p className="plot">{movieDetails.Plot}</p>
+        <div className="detail-content">
+          <p>
+            <strong>Released:</strong> {movieDetails.Released}
+          </p>
+          <p>
+            <strong>Director:</strong> {movieDetails.Director}
+          </p>
+          <p>
+            <strong>Writers:</strong> {movieDetails.Writer}
+          </p>
+          <p>
+            <strong>Actors:</strong> {movieDetails.Actors}
+          </p>
+        </div>
+      </div>
       {movieDetails.Poster && (
         <img
           className="poster-img"
@@ -41,33 +75,6 @@ export const DetailPage = () => {
           alt={`Poster of ${movieDetails.Title}`}
         />
       )}
-      {/* Additional movie details */}
-      <div className="detail-form">
-        <p>
-          <strong>Released:</strong> {movieDetails.Released}
-        </p>
-        <p>
-          <strong>Runtime:</strong> {movieDetails.Runtime}
-        </p>
-        <p>
-          <strong>Genre:</strong> {movieDetails.Genre}
-        </p>
-        <p>
-          <strong>Director:</strong> {movieDetails.Director}
-        </p>
-        <p>
-          <strong>Writers:</strong> {movieDetails.Writer}
-        </p>
-        <p>
-          <strong>Actors:</strong> {movieDetails.Actors}
-        </p>
-        <p>
-          <strong>Language:</strong> {movieDetails.Language}
-        </p>
-        <p>
-          <strong>IMDb Rating:</strong> {movieDetails.imdbRating}
-        </p>
-      </div>
     </div>
   );
 };

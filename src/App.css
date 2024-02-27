@@ -15,4 +15,6 @@
 
 body {
   background-image: url(/src/assets/backdrop.webp);
+  background-size: cover;
+  background-attachment: fixed;
 }

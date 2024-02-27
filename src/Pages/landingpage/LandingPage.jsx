@@ -8,7 +8,7 @@ export const LandingPage = () => {
   // State storing moviedata and searchstatus
   const [movies, setMovies] = useState([]);
   const [searchAttempted, setSearchattempted] = useState(false); //If search fails: Movie Not found-message
-  //Fetches the API key from the .env file
+  // Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 
   // This useEffect function loads movies from sessionStorage and updates state when the component mounts.
@@ -53,14 +53,18 @@ export const LandingPage = () => {
         <SearchForm onSearch={handleSearch} />
       </div>
 
+      {/* Container for the searchresult */}
       <div className="movie-result">
+        {/* Using a Ternary operator to check if there is a searchattempt. */}
         {searchAttempted ? (
+          // Nested ternary operator to check if there is movies in the array. If not, a message is displayed
           movies.length > 0 ? (
             <ul>
               {movies.map((movie) => (
                 <li key={movie.imdbID} className="movie-item">
                   <Link to={`/movie/${movie.imdbID}`} className="movie-link">
                     <div className="poster-box">
+                      {/* The ternary operator check if the array has a poster and if not, a default image is displayed instead  */}
                       {movie.Poster !== "N/A" ? (
                         <img
                           src={movie.Poster}
@@ -71,18 +75,20 @@ export const LandingPage = () => {
                       )}
                     </div>
                     <div className="movie-info">
-                      {movie.Title} - {movie.Year}
+                      {movie.Title} <br></br>- {movie.Year}
                     </div>
                   </Link>
                 </li>
               ))}
             </ul>
           ) : (
-            <div>Movie not found</div>
+            <div>
+              <p className="movie-not-found">
+                Sorry, there is no movie whith that title. Please try again
+              </p>
+            </div>
           )
-        ) : (
-          <div>Search for movies...</div>
-        )}
+        ) : null}
       </div>
     </>
   );
