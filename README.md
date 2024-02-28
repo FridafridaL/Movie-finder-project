@@ -8,9 +8,9 @@ https://resonant-arithmetic-f0da23.netlify.app/
 
 # About
 
-Welcome to my movie app-project were you can search for movies when your movie night arrives.
-You serach with a movie title and to imput year is optional.
-By clicking on a movie you come to a detail page about this movie and you can easily navigate back vith the back arrow.
+Welcome to my movie app-project were you can search for movies forr your movienight.
+You search with a movie title and to get a mor exact search you can input year of the film.
+By clicking on a movie you come to a detail page about this movie and you can easily navigate back with the back arrow.
 
 # Technologies
 
