@@ -27,4 +27,5 @@ For this project, I have used:
 # Screenshots
 
 ![Landingpage](screen1.png)
-![Detailpage] (screen2.png)
+
+![Detailpage](screen2.png)
