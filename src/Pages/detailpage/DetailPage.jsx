@@ -1,20 +1,22 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./DetailPage.css";
 import ArrowIcon from "../../assets/arrow.png";
 import imdb from "../../assets/imdb.png";
 
 export const DetailPage = () => {
-  const { id } = useParams();
-  const [movieDetails, setMovieDetails] = useState(null);
-  const navigate = useNavigate();
+  const { id } = useParams(); // Extracs the ID from the URL parameters
+  const [movieDetails, setMovieDetails] = useState(null); // State to store the movie details
+  const navigate = useNavigate(); // Hook used for navigation
+  // Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 
-  // Navigates back to landingpage
+  // Function to navigate back to landingpage
   const goBack = () => {
     navigate("/");
   };
 
+  // Fetches Movie details from API when the component mount or the id changes
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?i=${id}&apikey=${api_key}`)
       .then((response) => response.json())
@@ -25,6 +27,7 @@ export const DetailPage = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, [id]);
 
+  // Displays loading message until moviedetails are fetched
   if (!movieDetails) return <div>Loading...</div>;
 
   return (
@@ -41,7 +44,6 @@ export const DetailPage = () => {
         <p>{movieDetails.Language}</p>
         <div className="genres">
           {/* Splits the genres for styling purpuses */}
-
           {movieDetails.Genre.split(", ").map((genre, index) => (
             <span key={index} className="genre">
               {genre}

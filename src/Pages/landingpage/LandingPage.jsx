@@ -8,6 +8,7 @@ export const LandingPage = () => {
   // State storing moviedata and searchstatus
   const [movies, setMovies] = useState([]);
   const [searchAttempted, setSearchattempted] = useState(false); //If search fails: Movie Not found-message
+  const [showSearchWrapper, setShowSearchWrapper] = useState(true);
   // Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 
@@ -43,14 +44,40 @@ export const LandingPage = () => {
       .catch((error) => console.error("Error fetching data:", error));
   };
 
+  //  Function for top section to dissapear when scrolling
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setShowSearchWrapper(currentScrollY < lastScrollY || currentScrollY <= 0);
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="search-wrapper">
+      <div
+        className="search-wrapper"
+        style={{
+          transform: showSearchWrapper ? "translateY(0)" : "translateY(-100%)",
+          transition: "transform 0.5s ease",
+        }}
+      >
         <h1>Movie</h1>
         <h3>Night</h3>
-
         {/* Imported the SearchForm component and using handleSearch function above */}
         <SearchForm onSearch={handleSearch} />
+        {/* <div className="search-wrapper">
+        
+
+        
+        {/* */}
       </div>
 
       {/* Container for the searchresult */}

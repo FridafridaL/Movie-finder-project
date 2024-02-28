@@ -1,3 +1,4 @@
+/* Styling for main container in Landingpage (Parent) */
 .search-wrapper {
   display: flex;
   flex-direction: column;
@@ -11,6 +12,7 @@
   );
 }
 
+/* "Movie" in header */
 .search-wrapper h1 {
   font-size: 70px;
   font-family: "Limelight", sans-serif;
@@ -24,6 +26,7 @@
     0 0 150px #fc0101;
 }
 
+/* "Night" in header */
 .search-wrapper h3 {
   font-size: 50px;
   font-family: "Sacramento", cursive;
@@ -37,6 +40,7 @@
     0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
 }
 
+/* Main container for searchresult */
 .movie-result {
   display: flex;
   justify-content: center;
@@ -45,15 +49,7 @@
   margin: 0 35px;
 }
 
-.poster-box {
-  width: 50%;
-}
-.poster-box img {
-  width: 100%;
-  height: 100%;
-  border-radius: 30px 0 30px 30px;
-  box-shadow: 0 0 10px #ba0000, 0 0 20px #ba0000;
-}
+/* Container for poster and title in searchresult */
 .movie-link {
   display: flex;
   flex-direction: row;
@@ -64,15 +60,25 @@
   font-family: "Kelly Slab", sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
-
-ul {
-  list-style-type: none;
+/* styling for poster in searchresult */
+.poster-box {
+  width: 50%;
 }
-
+.poster-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px 0 30px 30px;
+  box-shadow: 0 0 10px #ba0000, 0 0 20px #ba0000;
+}
+/* styling for title and year in searchresult */
 .movie-info {
   text-align: left;
   padding-left: 12px;
   width: 50%;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .movie-not-found {

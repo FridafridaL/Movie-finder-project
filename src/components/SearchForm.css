@@ -1,3 +1,4 @@
+/* Container for the searchform (parent) */
 .search-form {
   display: flex;
   justify-content: center;
@@ -5,10 +6,10 @@
   width: 80%;
   padding-top: 20px;
   margin-bottom: 20px;
-  margin-left: auto; /* Centering the search-form itself */
+  margin-left: auto;
   margin-right: auto;
 }
-
+/* Styling for the actual form */
 form {
   display: flex;
   flex-direction: column;
@@ -17,23 +18,29 @@ form {
 }
 
 .inputs-row {
-  /* Flex container for inputs */
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Add space between the inputs */
+  justify-content: space-between;
 }
-/* .search-form .input-box {
-  margin-right: 10px; 
-  flex-grow: 1;
-} */
+
 input[type="text"] {
   padding: 5px;
+  color: rgb(73, 73, 73);
   margin-bottom: 10px;
   border: 1px solid #b71313;
   border-radius: 5px;
   font-size: 14px;
   background-color: #cbb8b8;
 }
+
+.input-title::placeholder {
+  color: rgb(73, 73, 73);
+}
+
+.input-year::placeholder {
+  color: rgb(73, 73, 73);
+}
+
 .input-title {
   width: 65%;
   margin-right: 2px;
@@ -45,12 +52,12 @@ input[type="text"] {
 button.search-button {
   padding: 5px 20px;
   background-color: #c3f9eb;
-  color: rgb(110, 110, 110);
+  color: rgb(73, 73, 73);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color 0.2s; /* Smooth transition for hover effect */
+  transition: background-color 0.2s;
 }
 
 button.search-button:hover {

@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./SearchForm.css";
 
 export const SearchForm = ({ onSearch }) => {
+  // States handeling the inputs with title and year
   const [searchTitle, setSearchTitle] = useState("");
   const [year, setYear] = useState("");
 
+  // Function that's called when the form is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(searchTitle, year);
