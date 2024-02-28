@@ -73,11 +73,6 @@ export const LandingPage = () => {
         <h3>Night</h3>
         {/* Imported the SearchForm component and using handleSearch function above */}
         <SearchForm onSearch={handleSearch} />
-        {/* <div className="search-wrapper">
-        
-
-        
-        {/* */}
       </div>
 
       {/* Container for the searchresult */}
