@@ -5,9 +5,9 @@ import ArrowIcon from "../../assets/arrow.png";
 import imdb from "../../assets/imdb.png";
 
 export const DetailPage = () => {
-  const { id } = useParams(); // Extracs the ID from the URL parameters
-  const [movieDetails, setMovieDetails] = useState(null); // State to store the movie details
-  const navigate = useNavigate(); // Hook used for navigation
+  const { id } = useParams();
+  const [movieDetails, setMovieDetails] = useState(null);
+  const navigate = useNavigate();
   // Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
 

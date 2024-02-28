@@ -7,7 +7,7 @@ import "./LandingPage.css";
 export const LandingPage = () => {
   // State storing moviedata and searchstatus
   const [movies, setMovies] = useState([]);
-  const [searchAttempted, setSearchattempted] = useState(false); //If search fails: Movie Not found-message
+  const [searchAttempted, setSearchattempted] = useState(false);
   const [showSearchWrapper, setShowSearchWrapper] = useState(true);
   // Fetches the API key from the .env file
   const api_key = import.meta.env.VITE_OMDB_API_KEY;
@@ -75,7 +75,6 @@ export const LandingPage = () => {
         <SearchForm onSearch={handleSearch} />
       </div>
 
-      {/* Container for the searchresult */}
       <div className="movie-result">
         {/* Using a Ternary operator to check if there is a searchattempt. */}
         {searchAttempted ? (
